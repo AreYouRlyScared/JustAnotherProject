@@ -1,8 +1,9 @@
 <?php
 include_once "db.php";
 $conn = mysqli_connect($servername, $username, $password, $dbname);
+$Numservers = "1";
 ?>
-<p> Total Servers: <b><? echo $Numservers;?></b></p>
+<p> Total Servers: <b><? echo $total;?></b></p>
 
 <table cellspacing="2.5">
 	<thread>
@@ -25,8 +26,9 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 	</tfoot>
 	<tbody>
 <?php
-$read = mysqli_query($conn, "SELECT * FROM servers;");
-while ($row = mysqli_fetch_array($read)){?>
+$read = mysqli_query($conn, "SELECT * FROM servers ORDER BY game_version DESC");
+while ($row = mysqli_fetch_array($read)){
+	 $total += $Numbservers;?>
 	<tr>
     <td><?php echo $row['name'];?></td>
 	<td><?php if($row['game_version'] == '0.17.0'){ echo "	";}else{ echo $row['game_version'];}?></td>
