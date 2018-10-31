@@ -3,8 +3,6 @@ include_once "db.php";
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 $Numservers = "1";
 ?>
-<p> Total Servers: <b><? echo $total;?></b></p>
-
 <table cellspacing="2.5">
 	<thread>
 		<tr>
@@ -27,8 +25,7 @@ $Numservers = "1";
 	<tbody>
 <?php
 $read = mysqli_query($conn, "SELECT * FROM servers ORDER BY game_version DESC");
-while ($row = mysqli_fetch_array($read)){
-	 $total += $Numbservers;?>
+while ($row = mysqli_fetch_array($read)){?>
 	<tr>
     <td><?php echo $row['name'];?></td>
 	<td><?php if($row['game_version'] == '0.17.0'){ echo "	";}else{ echo $row['game_version'];}?></td>
@@ -37,6 +34,9 @@ while ($row = mysqli_fetch_array($read)){
     <td><?php if($row['has_password'] == 0){ echo "No";}else{ echo "Yes";}?></td>
     <td><?php if($row['has_mods'] == 0){ echo "No";}else{ echo "Yes";}?></td>
    </tr>
-<?};?>
+<?
+	$total += $Numservers;
+	};?>
 </tbody>
+<p> Total Servers: <b><? echo $total;?></b></p>
 </html>
