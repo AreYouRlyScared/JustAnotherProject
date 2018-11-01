@@ -14,8 +14,8 @@ else
 		<tr>
 			<th>Server Name</th>
 			<th>Game Version</th>
-			<th>Max Players</th>
-			<th width="80px">Map Time</th>
+			<th><img src="images/players.png"></th>
+			<th width="80px"><img src="images/time.png"></th>
 			<th><img src="images/password.png"></th>
 			<th>Mods</th>
 		</tr>
@@ -30,7 +30,7 @@ else
 	</tfoot>
 	<tbody>
 <?php
-$read = mysqli_query($conn, "SELECT * FROM servers ORDER BY game_version DESC");
+$read = mysqli_query($conn, "SELECT * FROM servers;");
 while ($row = mysqli_fetch_array($read)){?>
 	<tr>
     <td><?php echo $row['name'];?></td>
