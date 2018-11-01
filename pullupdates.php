@@ -18,6 +18,7 @@ foreach($decode as $server){
 			has_mods = '". $server["has_mods"] . "',
 			mod_count = '". $server["mod_count"] . "'
 			;";
+	$del = "DELETE FROM servers WHERE last_heartbeat < UNIX_TIMESTAMP(NOW() - INTERVAL 360 minute)"; // Delte servers with a heartbeat older then 3 hours from now.
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
@@ -25,5 +26,10 @@ foreach($decode as $server){
 		//nothing
 	}else{
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
+	if (mysqli_query($conn, $del)){
+		//nothing
+	}else {
+		echo "Error: " . $del . "<br>" . mysqli_error($conn);
 	}
 }
