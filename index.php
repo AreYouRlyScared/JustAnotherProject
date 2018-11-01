@@ -16,17 +16,17 @@ else
 			<th>Game Version</th>
 			<th><img src="images/players.png"></th>
 			<th width="80px"><img src="images/time.png"></th>
-			<th><img src="images/password.png"></th>
-			<th>Mods</th>
+			<th width="40px"><img src="images/password.png"></th>
+			<th width="50px">Mods</th>
 		</tr>
 	</thread>
 	<tfoot>
 		<th>Name</th>
 		<th>Game Version</th>
-		<th>Max Players</th>
-		<th>Map Time</th>
-		<th>Password</th>
-		<th>Mods</th>
+		<th><img src="images/players.png"></th>
+		<th width="80px"><img src="images/time.png"></th>
+		<th width="40px"><img src="images/password.png"></th>
+		<th width="40px">Mods</th>
 	</tfoot>
 	<tbody>
 <?php
